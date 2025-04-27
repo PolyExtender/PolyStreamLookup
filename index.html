@@ -411,7 +411,7 @@
     <div class="results-container" id="resultsSection" style="display: none;">
       <div class="results-header">
         <h2 id="channelTitle">Channel Emotes</h2>
-        <div class="results-stats" id="emoteCount"></div>
+         <div class="results-stats" id="emoteCount"></div>
       </div>
       <div class="emote-grid" id="emoteContainer">
         <!-- Emotes will be displayed here -->
@@ -461,7 +461,7 @@
         document.getElementById('noResults').style.display = 'none';
         
         // Fetch emotes from API
-        const api_url = `https://emotes.adamcy.pl/v1/channel/${channel}/emotes/all`;
+        const api_url = `https://emotes.crippled.dev/v1/channel/${channel}/all`;
         
         fetch(api_url)
           .then(response => response.json())
@@ -497,26 +497,26 @@
               card.style.animationDelay = `${index * 0.05}s`;
               
               // Get provider details
-              let providerName = 'Twitch';
+              let providerName = ' Twitch';
               let providerClass = 'provider-twitch';
               let providerIcon = 'tv';
               let providerUrl = `https://twitch.tv/${channel}`;
               
               if (emote.provider === 1) {
-                providerName = '7TV';
+                providerName = ' 7TV';
                 providerClass = 'provider-7tv';
                 providerIcon = 'filter_7';
-                providerUrl = 'https://bit.ly/Bacon7TV';
+                providerUrl = 'https://7tv.app/';
               } else if (emote.provider === 2) {
-                providerName = 'BTTV';
+                providerName = ' BTTV';
                 providerClass = 'provider-bttv';
                 providerIcon = 'extension';
-                providerUrl = 'https://bit.ly/BaconBTTV';
+                providerUrl = 'https://betterttv.com/';
               } else if (emote.provider === 3) {
-                providerName = 'FFZ';
+                providerName = ' FFZ';
                 providerClass = 'provider-ffz';
                 providerIcon = 'face';
-                providerUrl = 'https://bit.ly/BaconFFZ';
+                providerUrl = 'https://www.frankerfacez.com/';
               }
               
               // Create card HTML
@@ -527,7 +527,7 @@
                 <div class="emote-details">
                   <h3 class="emote-name" title="${emote.code}">${emote.code}</h3>
                   <div class="provider-badge ${providerClass}">
-                    <i class="material-icons tiny">${providerIcon}</i> ${providerName}
+                    <i class="material-icons tiny">${providerIcon}</i> <a href="${providerUrl}">${providerName}</a>
                   </div>
                 </div>
               `;
